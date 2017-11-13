@@ -13,11 +13,7 @@ module.exports = function (context) {
             }
             if (!(/<application[^>]*\bandroid:banner/).test(data)) {
                 console.log('Adding banner attribute');
-                data = data.replace(/<application/g, '<application android:banner="@drawable/banner"');
-            }
-            if (!(/<application[^>]*\bandroid:isGame="true"/).test(data)) {
-                console.log('Adding isGame attribute');
-                data = data.replace(/<application/g, '<application android:isGame="false"');
+                data = data.replace(/<application/g, '<application android:banner="@mipmap/icon"');
             }
             fs.writeFile(manifestFile, data, 'utf8', function (err) {
                 if (err) throw new Error('Unable to write into AndroidManifest.xml: ' + err);
